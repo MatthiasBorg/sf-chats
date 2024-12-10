@@ -114,15 +114,71 @@
         <form id="theForm">
             <p>
                 <label for="fName">First Name:</label>
-                <input id="fName" name="fName" value="Some First Name" type="text"/>
+                <input id="fName" name="fName" value="TestName" type="text"/>
             </p>
             <p>
                 <label for="lName">Last Name:</label>
-                <input id="lName" name="lName" value="Some Last Name" type="text"/>
+                <input id="lName" name="lName" value="TestSurname" type="text"/>
             </p>
             <p>
                 <label for="email">Email:</label>
-                <input id="email" value="Some email" name="email" type="text"/>
+                <input id="email" value="test@test.com" name="email" type="text"/>
+            </p>
+            <!--Entity-->
+            <p>
+                <label for="entity">Entity:</label>
+                <select id="entity" name="entity">
+                    <option value="TCL">TCL</option>
+                    <option value="TKAL">TKAL</option>
+                    <option value="TGAL">TGAL</option>
+                    <option value="TSAV">TSAV</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+            <p>
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="Account closure">Account closure</option>
+                    <option value="Login & password issues">Login & password issues</option>
+                    <option value="Kontoschließung">Kontoschließung</option>
+                    <option value="Technical issues">Technical issues</option>
+                    <option value="Technische Tipps">Technische Tipps</option>
+                    <option value="Login & Passwort-Hilfe">Login & Passwort-Hilfe</option>
+                    <option value="Promotions & bonus">Promotions & bonus</option>
+                    <option value="Bonus & Aktionen">Bonus & Aktionen</option>
+                    <option value="Games">Games</option>
+                    <option value="Data privacy">Data privacy</option>
+                    <option value="Datenschutz">Datenschutz</option>
+                    <option value="Customer card & shop">Customer card & shop</option>
+                    <option value="Kundenkarte & Wettshop">Kundenkarte & Wettshop</option>
+                    <option value="Deposits & withdrawals">Deposits & withdrawals</option>
+                    <option value="Ein- und Auszahlungen">Ein- und Auszahlungen</option>
+                    <option value="Player Protection">Player Protection</option>
+                    <option value="Spielerschutz">Spielerschutz</option>
+                    <option value="Sports betting">Sports betting</option>
+                    <option value="Sportwetten">Sportwetten</option>
+                    <option value="My account & verification">My account & verification</option>
+                    <option value="Mein Konto & Verifizierung">Mein Konto & Verifizierung</option>
+                </select>
+            </p>
+            <!--Language-->
+            <p>
+                <label for="language">Language:</label>
+                <select id="language" name="language">
+                    <option value="German">German</option>
+                    <option value="English">English</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+            <!--Country-->
+            <p>
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="German">Germany</option>
+                    <option value="Turkish">Austria</option>
+                    <option value="Other">Other</option>
+                </select>
             </p>
         </form>
         <input type="button" value="Start Chat" onclick="startChat();"/>
@@ -207,6 +263,10 @@
                 const fName     = document.getElementById("fName");
                 const lName     = document.getElementById("lName");
                 const emailVar  = document.getElementById("email");
+                const entity    = document.getElementById("entity");
+                const category  = document.getElementById("category");
+                const language  = document.getElementById("language");
+                const country   = document.getElementById("country");
 
                 let preChatVars = [
                     {
@@ -225,10 +285,10 @@
                         "value": "CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1; BrowserId=MiTP3LBFEe-59c9yTx49mA; _hjSessionUser_3335449=eyJpZCI6ImEwZmZiZTM0LTk4OWItNTkyYS04ZWJhLTVmNjE2OWNhNDczZCIsImNyZWF0ZWQiOjE3MzMwOTk2NzI1MzIsImV4aXN0aW5nIjp0cnVlfQ==; _hjSession_3335449=eyJpZCI6ImQ0MjI1ZGNiLTRlZjMtNDM1Zi1iZTIzLTM0ZTdiOTYyNDkyNCIsImMiOjE3MzMxMjQzNjczOTksInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MX0=",
                         "transcriptFields": ["CacheCookies__c"]
                     },{
-                        "value": "TCL",
+                        "value": entity.value,
                         "transcriptFields": ["Entity__c"]
                     },{
-                        "value": "Games",
+                        "value": category.value,
                         "transcriptFields": ["Category__c"]
                     },{
                         "value": "Tipico",
@@ -240,7 +300,7 @@
                         "value": "Tipico - Originalwetten",
                         "transcriptFields": ["Label__c"]
                     },{
-                        "value": "German",
+                        "value": language.value,
                         "transcriptFields": ["Language__c"]
                     },{
                         "value": "Helpcenter_Games_Turkish",
@@ -255,7 +315,7 @@
                         "value": "Ailomailo@test.com",
                         "transcriptFields": ["Username__c"]
                     },{
-                        "value": "Denmark",
+                        "value": country.value,
                         "transcriptFields": ["country__c"]
                     },{
                         "value": "DESKTOP_WEB_RETH",

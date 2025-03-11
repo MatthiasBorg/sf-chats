@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Salesforce Chat Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Our Support Chat</h1>
+        <p>Click the chat icon at the bottom right to start a conversation with our support team.</p>
+    </div>
+
+    <!-- Messaging Component Script -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // Change language if needed
+
+                embeddedservice_bootstrap.init(
+                    '00DPw0000092B8g', // Salesforce Org ID
+                    'Test_MIAW_Chat', // Chat Deployment Name
+                    'https://tipico--miaw.sandbox.my.site.com/ESWTestMIAWChat1741597258296',  // Salesforce URL
+                    {
+                        scrt2URL: 'https://tipico--miaw.sandbox.my.salesforce-scrt.com' // Secret URL for authentication
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        }
+    </script>
+    <script type='text/javascript' src='https://tipico--miaw.sandbox.my.site.com/ESWTestMIAWChat1741597258296/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+</body>
+</html>
